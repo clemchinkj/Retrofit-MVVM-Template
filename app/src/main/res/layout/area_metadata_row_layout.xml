@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myAreaMetadataEntry"
+            type="com.deccovers.retrofittest.data.weather.model.MyAreaMetadataEntry" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="800dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvArea"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Yishun: "
+            android:text="@{myAreaMetadataEntry.name + `:`}"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvLat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Lat = 1.420112311,"
+            android:text="@{`Lat = ` + String.valueOf(myAreaMetadataEntry.labelLocation.latitude)}"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:padding="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvLong"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Long = 1.420121124,"
+            android:text="@{`Long = ` + String.valueOf(myAreaMetadataEntry.labelLocation.longitude)}"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:padding="16sp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</layout>

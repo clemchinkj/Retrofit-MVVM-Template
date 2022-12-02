@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="weatherViewModel"
+            type="com.deccovers.retrofittest.ui.weather.WeatherViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.weather.WeatherFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/purple_200">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineH1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.15" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineH2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.55" />
+
+            <ImageView
+                android:id="@+id/ivClosePage2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPage2"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="Page 2"
+                android:layout_marginStart="12dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivClosePage2"
+                app:layout_constraintStart_toEndOf="@+id/ivClosePage2"
+                app:layout_constraintTop_toTopOf="@+id/ivClosePage2" />
+
+            <TextView
+                android:id="@+id/tvWeatherLastRetrieval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineH1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guidelineH1"
+                android:text="Last Retrieval:" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Area"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvWeatherLastRetrieval"
+                app:layout_constraintTop_toBottomOf="@+id/tvWeatherLastRetrieval" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="16dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineH2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fadingEdgeLength="20dp"
+                    android:requiresFadingEdge="vertical"
+                    tools:listitem="@layout/area_metadata_row_layout"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </HorizontalScrollView>
+
+            <ProgressBar
+                android:id="@+id/progressBarAreaMetadata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:padding="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/horizontalScrollView2"
+                app:layout_constraintEnd_toEndOf="@+id/horizontalScrollView2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/horizontalScrollView2" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Forecast"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/guidelineH2" />
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="16dp"
+                android:background="@color/white"
+                android:fadingEdgeLength="20dp"
+                android:requiresFadingEdge="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/rbPartlyCloudy"
+                            android:layout_width="600dp"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:gravity="top"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Partly Cloudy (Day)"/>
+
+                        <RadioButton
+                            android:id="@+id/rbThunderyShowers"
+                            android:layout_width="600dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Thundery Showers"/>
+
+                        <RadioButton
+                            android:id="@+id/rbShowers"
+                            android:layout_width="600dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Showers"/>
+
+                        <RadioButton
+                            android:id="@+id/rbModerateRain"
+                            android:layout_width="600dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:layout_margin="8dp"
+                            android:textSize="16sp"
+                            android:text="Moderate Rain"/>
+                    </RadioGroup>
+                </HorizontalScrollView>
+
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

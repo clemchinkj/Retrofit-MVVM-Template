@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myCarparkEntry"
+            type="com.deccovers.retrofittest.data.carpark.model.MyCarparkEntry" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="800dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/black">
+
+        <TextView
+            android:id="@+id/tvCarparkNumber"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            tools:text="Car Park #"
+            android:text="@{myCarparkEntry.carparkNumber}"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvTotalLots"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            tools:text="Total Lots"
+            android:text="@{myCarparkEntry.totalLots}"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvLotType"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            tools:text="Lot Type"
+            android:text="@{myCarparkEntry.lotType}"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvLotsAvailable"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            tools:text="Lots Available"
+            android:text="@{myCarparkEntry.lotsAvailable}"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvUpdateDateTime"
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            tools:text="Update Date/Time"
+            android:text="@{myCarparkEntry.updateDateTime}"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</layout>
